@@ -1,0 +1,62 @@
+<head>
+    <title>Interactive Image Gallery</title>
+    <link href="image.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>Image Gallery</h1>
+    </header>
+
+    <div class="gallery-container">
+        <div class="gallery-card">
+            <img id="galleryImage" src="p1.png" alt="Gallery Image">
+            <p class="caption" id="caption">Rolls-Royce La Rose Noire Droptail</p>
+
+            <div class="buttons">
+                <button onclick="prevImage()">Previous</button>
+                <button onclick="nextImage()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+       VIJAYAPRATHISHA J (25008497)
+    </footer>
+
+    <script>
+        let gallery = [
+            { src: "p1.png", text: "Rolls-Royce La Rose Noire Droptail" },
+            { src: "p2.jpg", text: "Bugatti La Voiture Noire" },
+            { src: "p3.webp", text: "Pagani Zonda HP Barchetta" },
+            { src: "p4.webp", text: "SP Automotive Chaos" },
+            { src: "p5.webp", text: "Mercedes Maybach Exelero" },
+            { src: "p6.jpg", text: "Koenigsegg Sadair’s Spear" },
+            { src: "p7.jpg", text: "Pininfarina B95	" },
+        ];
+        let index = 0;
+        function nextImage() 
+        {
+            index++;
+            if (index >= gallery.length) 
+            {
+                index = 0;
+            }
+            updateImage();
+        }
+        function prevImage() 
+        {
+            index--;
+            if (index < 0) 
+            {
+                index = gallery.length - 1;
+            }
+            updateImage();
+        }
+        function updateImage() 
+        {
+            document.getElementById("galleryImage").src = gallery[index].src;
+            document.getElementById("caption").innerText = gallery[index].text;
+        }
+    </script>
+</body>
+</html>
